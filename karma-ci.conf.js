@@ -29,9 +29,23 @@ module.exports = function(config) {
 			}
 		},
 
-		reporters: ["progress", "coverage"],
+		customLaunchers: {
+			sl_chrome: {
+				base: "SauceLabs",
+				browserName: "chrome",
+				platform: "Windows 10",
+				version: "latest"
+		  	}
+		},
 
-		browsers: ["ChromeHeadless"],
+		sauceLabs: {
+			testName: 'max-playground'
+		},
+
+		reporters: ["progress", "coverage", "saucelabs"],
+
+		// browsers: ["ChromeHeadless"],
+		browsers: ["sl_chrome"],
 
 		singleRun: true
 
